@@ -22,6 +22,10 @@ public class Controller
 	//Method that actually allows you to play.
 	private void play()
 	{
+		int oneWins = 0;
+		int pOneWins = 0;
+		int twoWins = 0;
+		int compWins = 0;
 		String userChoice = "yes";
 		//Allows you to choose to play again without closing the program
 		while(userChoice.toLowerCase().contains("yes"))
@@ -41,11 +45,13 @@ public class Controller
 				if(userAnswer.toLowerCase().contains("rock") && computerAnswer < 1)
 				{
 					System.out.println("You win.");
+					oneWins ++;
 				}
 				//If the random number is between 1 & 2, it is considered scissors.
 				else if(userAnswer.toLowerCase().contains("rock") && computerAnswer < 2)
 				{
 					System.out.println("I win.");
+					compWins ++;
 				}
 				//If the random number is between 2 & 3, it is considered rock.
 				else if(userAnswer.toLowerCase().contains("rock") && computerAnswer < 3)
@@ -59,14 +65,17 @@ public class Controller
 				else if(userAnswer.toLowerCase().contains("paper") && computerAnswer < 2)
 				{
 					System.out.println("I win.");
+					compWins ++;
 				}
 				else if(userAnswer.toLowerCase().contains("paper") && computerAnswer < 3)
 				{
 					System.out.println("You win.");
+					oneWins ++;
 				}
 				else if(userAnswer.toLowerCase().contains("scissors") && computerAnswer < 1)
 				{
 					System.out.println("You win.");
+					oneWins ++;
 				}
 				else if(userAnswer.toLowerCase().contains("scissors") && computerAnswer < 2)
 				{
@@ -75,7 +84,9 @@ public class Controller
 				else if(userAnswer.toLowerCase().contains("scissors") && computerAnswer < 3)
 				{
 					System.out.println("I win.");
+					compWins ++;
 				}
+				System.out.println("WINS: " + oneWins + "LOSES: " + compWins);
 			}
 			//Method for 2 player game.
 			else if(gameMode.toLowerCase().contains("two"))
@@ -90,10 +101,12 @@ public class Controller
 				if(userAnswer.toLowerCase().contains("rock") && computerAnswer.toLowerCase().contains("scissors"))
 				{
 					System.out.println("P1 wins.");
+					pOneWins ++;
 				}
 				else if(userAnswer.toLowerCase().contains("rock") && computerAnswer.toLowerCase().contains("paper"))
 				{
 					System.out.println("P2 wins.");
+					twoWins ++;
 				}
 				else if(userAnswer.toLowerCase().contains("rock") && computerAnswer.toLowerCase().contains("rock"))
 				{
@@ -102,6 +115,7 @@ public class Controller
 				else if(userAnswer.toLowerCase().contains("paper") && computerAnswer.toLowerCase().contains("scissors"))
 				{
 					System.out.println("P2 wins.");
+					twoWins ++;
 				}
 				else if(userAnswer.toLowerCase().contains("paper") && computerAnswer.toLowerCase().contains("paper"))
 				{
@@ -110,6 +124,7 @@ public class Controller
 				else if(userAnswer.toLowerCase().contains("paper") && computerAnswer.toLowerCase().contains("rock"))
 				{
 					System.out.println("P1 wins.");
+					pOneWins ++;
 				}
 				else if(userAnswer.toLowerCase().contains("scissors") && computerAnswer.toLowerCase().contains("scissors"))
 				{
@@ -118,11 +133,14 @@ public class Controller
 				else if(userAnswer.toLowerCase().contains("scissors") && computerAnswer.toLowerCase().contains("paper"))
 				{
 					System.out.println("P1 wins.");
+					pOneWins ++;
 				}
 				else if(userAnswer.toLowerCase().contains("scissors") && computerAnswer.toLowerCase().contains("rock"))
 				{
 					System.out.println("P2 wins.");
+					twoWins ++;
 				}
+				System.out.println("P1 WINS: " + pOneWins + "P2 WINS: " + twoWins);
 			}
 			//Announces if you failed to pick a valid game type.
 			else
